@@ -2,10 +2,11 @@
 import { CollapsableMenu } from '@/components';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
 import { App, Leetcode, MDXEntry } from '@/lib/mdx';
-import { Menu, Section, SubMenu, expandableSlice, explorerSlice, sectionSlice, selectExpanded, selectInitialLoad, selectMenu, useDispatch, useSelector } from '@/lib/redux';
+import { Menu, Section, SubMenu, expandableSlice, explorerSlice, sectionSlice, selectExpanded, selectInitialLoad, selectMenu, selectThemeMenuOpen, themeSlice, useDispatch, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
+import ThemeSelector from './ThemeSelector';
 import ToolTip from './ToolTip';
 
 const barItems = [
@@ -36,6 +37,7 @@ export default function ActivityBar({ sections, allApps, allLeetcode }: { sectio
   const activeMenu = useSelector(selectMenu);
   const expanded = useSelector(selectExpanded);
   const initialLoad = useSelector(selectInitialLoad);
+  const themeMenuOpen = useSelector(selectThemeMenuOpen);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -76,7 +78,17 @@ export default function ActivityBar({ sections, allApps, allLeetcode }: { sectio
         </div>
         <div className="cursor-pointer">
           <Tooltip icon={<Accounts width="32" height="32" />} text="Accounts" active={false} handleMouseClick={() => {}} />
-          <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={() => {}} />
+          <div className="relative">
+            <Tooltip 
+              icon={<Gear />} 
+              text="Manage" 
+              active={false} 
+              handleMouseClick={() => {
+                dispatch(themeSlice.actions.toggleThemeMenu());
+              }} 
+            />
+            <ThemeSelector active={themeMenuOpen} />
+          </div>
         </div>
       </div>
       <CollapsableMenu allApps={allApps} allLeetcode={allLeetcode} />

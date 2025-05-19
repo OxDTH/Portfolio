@@ -40,7 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <Providers>
       <html lang="en">
-        <body className="bg-dark_bg min-h-screen max-h-screen flex flex-col scroll-smooth">
+        <body className="min-h-screen max-h-screen flex flex-col scroll-smooth" style={{ backgroundColor: 'var(--theme-bg-color)', color: 'var(--theme-text-color)' }}>
           <Toaster />
           <TopBar />
           <main className="flex-1 flex overflow-hidden relative">

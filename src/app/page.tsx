@@ -1,4 +1,4 @@
-import { AboutMe, AnimatedTitle, Border, ContactForm, Container, FadeIn, GridPattern, MyWork, Section, SectionHeader, Skills, Socials, Stars, WorkExperience } from '@/components';
+import { AboutMe, AnimatedTitle, Border, ContactForm, Container, FadeIn, GridPattern, MyWork, Section, SectionHeader, Skills, SmoothScrollLink, Socials, Stars, WorkExperience } from '@/components';
 import { Archive, BookOpen, BriefCase, Envelope } from '@/icons';
 
 export const metadata = {
@@ -123,11 +123,11 @@ export default function Index() {
             </FadeIn>
 
             <Socials />
-            <div className="scroll-down">
+            <SmoothScrollLink to="work-experience" className="scroll-down">
               <span></span>
               <span></span>
               <span></span>
-            </div>
+            </SmoothScrollLink>
           </div>{' '}
           <Border />
           <AboutMe />

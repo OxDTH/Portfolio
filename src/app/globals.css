@@ -1,4 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
+  /* Enable smooth scrolling for the entire site */
+  html {
+    scroll-behavior: smooth;
+  }
   :root {
     --shiki-color-text: theme('colors.white');
     --shiki-token-constant: theme('colors.green.400');
@@ -9,16 +17,94 @@
     --shiki-token-function: theme('colors.violet.300');
     --shiki-token-string-expression: theme('colors.green.400');
     --shiki-token-punctuation: theme('colors.zinc.200');
+
+    /* Theme Variables */
+    --theme-bg-color: theme('colors.dark_bg');
+    --theme-text-color: theme('colors.gray.300');
+    --theme-accent-color: theme('colors.gray.500');
+    
+    /* Default scrollbar colors */
+    --scrollbar-thumb-color: #292d45;
+    --scrollbar-thumb-active-color: #3d4363;
+  }
+
+  /* Theme transition for smooth theme switching */
+  .theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  }
+  
+  .theme-dark {
+    --theme-bg-color: #1e1e1e;
+    --theme-text-color: #d4d4d4;
+    --theme-accent-color: #6a6a6a;
+    --scrollbar-thumb-color: #444444;
+    --scrollbar-thumb-active-color: #555555;
+  }
+  
+  .theme-monokai {
+    --theme-bg-color: #272822;
+    --theme-text-color: #f8f8f2;
+    --theme-accent-color: #a6e22e;
+    --scrollbar-thumb-color: #3e4334;
+    --scrollbar-thumb-active-color: #a6e22e55;
+  }
+  
+  .theme-github-dark {
+    --theme-bg-color: #0d1117;
+    --theme-text-color: #c9d1d9;
+    --theme-accent-color: #58a6ff;
+    --scrollbar-thumb-color: #30363d;
+    --scrollbar-thumb-active-color: #58a6ff55;
+  }
+  
+  .theme-cobalt {
+    --theme-bg-color: #193549;
+    --theme-text-color: #ffffff;
+    --theme-accent-color: #ff9d00;
+    --scrollbar-thumb-color: #2a4e69;
+    --scrollbar-thumb-active-color: #ff9d0055;
+  }
+  
+  .theme-dracula {
+    --theme-bg-color: #282a36;
+    --theme-text-color: #f8f8f2;
+    --theme-accent-color: #bd93f9;
+    --scrollbar-thumb-color: #44475a;
+    --scrollbar-thumb-active-color: #bd93f955;
+  }
+
+  .theme-red-sunset {
+    --theme-bg-color: #2d1a1e;
+    --theme-text-color: #f8e8e8;
+    --theme-accent-color: #ff5252;
+    --scrollbar-thumb-color: #4a2a30;
+    --scrollbar-thumb-active-color: #ff525255;
+  }
+  
+  .theme-emerald {
+    --theme-bg-color: #0f2318;
+    --theme-text-color: #e6f3ed;
+    --theme-accent-color: #4ade80;
+    --scrollbar-thumb-color: #1f3f2a;
+    --scrollbar-thumb-active-color: #4ade8055;
+  }
+  
+  .theme-solar {
+    --theme-bg-color: #261e15;
+    --theme-text-color: #fdf6e3;
+    --theme-accent-color: #f7b731;
+    --scrollbar-thumb-color: #3a2f22;
+    --scrollbar-thumb-active-color: #f7b73155;
   }
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-/* https://css-tricks.com/custom-scrollbars-in-webkit/ */
+/* Custom scrollbars - with support for both Webkit and Firefox */
 
+/* Webkit-based browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 14px;
+  height: 14px;
+  transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,21 +112,56 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #292d45;
-  height: 80%;
-  padding-top: 10px;
+  background: var(--scrollbar-thumb-color, #292d45);
+  border-radius: 7px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  min-height: 44px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-color, #292d45);
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: #3d4363;
+  background: var(--scrollbar-thumb-active-color, #3d4363);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbar styling using standard properties */
+html {
+  scrollbar-color: var(--scrollbar-thumb-color, #292d45) transparent;
+  scrollbar-width: thin;
+  /* Smooth scrolling is already defined at the top of the file */
+}
+
+html:hover {
+  scrollbar-color: var(--scrollbar-thumb-active-color, #3d4363) transparent;
+}
+
+/* Content scrollbar behavior */
+.content {
+  scrollbar-width: none; /* Firefox */
 }
 
 .content::-webkit-scrollbar {
-  display: none;
+  display: none; /* Webkit */
+}
+
+.content:hover {
+  scrollbar-width: thin; /* Firefox */
 }
 
 .content:hover::-webkit-scrollbar {
-  display: block;
+  display: block; /* Webkit */
 }
 
 .folder-container {

@@ -22,9 +22,13 @@ import Skills from './Skills';
 import Socials from './Socials';
 import Stars from './Stars';
 import TabsContainer from './TabsContainer';
+import ThemeProvider from './ThemeProvider';
+import ThemeSelector from './ThemeSelector';
 import ToolTip from './ToolTip';
 import TopBar from './TopBar';
 import WorkExperience from './WorkExperience';
+import SmoothScrollLink from './SmoothScrollLink';
+import SectionNavigation from './SectionNavigation';
 
 export {
   AboutMe,
@@ -53,7 +57,11 @@ export {
   Stagger,
   Stars,
   TabsContainer,
+  ThemeProvider,
+  ThemeSelector,
   ToolTip,
   TopBar,
   WorkExperience,
+  SmoothScrollLink,
+  SectionNavigation,
 };
