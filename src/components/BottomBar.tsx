@@ -1,7 +1,7 @@
 'use client';
 import { Bell, CloudUpload, Info, RadioTower, Remote, SourceControl, Warning } from '@/icons';
 import clsx from 'clsx';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import ToolTip from './ToolTip';
 
 const rightItems = [
@@ -47,6 +47,35 @@ const rightItems = [
 ];
 
 export default function BottomBar() {
+  const [currentTime, setCurrentTime] = useState(new Date());
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, []);
+  
+  const formatDateTime = () => {
+    const options: Intl.DateTimeFormatOptions = { 
+      day: '2-digit', 
+      month: 'short', 
+      year: 'numeric',
+    };
+    const timeOptions: Intl.DateTimeFormatOptions = {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    
+    const dateStr = currentTime.toLocaleDateString('en-US', options);
+    const timeStr = currentTime.toLocaleTimeString('en-US', timeOptions);
+    
+    return `${dateStr} | ${timeStr}`;
+  };
+
   return (
     <div className="flex justify-between border-t-2 border-dark_border text-gray-500 text-sm select-none">
       <div className="flex items-center cursor-pointer gap-1">
@@ -74,6 +103,16 @@ export default function BottomBar() {
             </div>
           }
           text="No Problems"
+          position="center"
+          className="hidden sm:block"
+        />
+        <Tooltip
+          icon={
+            <div className="flex items-center text-xs">
+              <span className="ml-1">{formatDateTime()}</span>
+            </div>
+          }
+          text="Current Date and Time"
           position="center"
           className="hidden sm:block"
         />
