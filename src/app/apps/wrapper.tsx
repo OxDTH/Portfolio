@@ -13,7 +13,7 @@ export default async function AppsLayout({ appData, children }: { appData: App; 
           <Section id="about">
             <FadeInStagger once>
               <FadeIn>
-                <AppIntro eyebrow="Case Study" title={appData.title}>
+                <AppIntro eyebrow="Work Spotlight" title={appData.title}>
                   <p>{appData.description}</p>
                 </AppIntro>
               </FadeIn>
