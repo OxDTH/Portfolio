@@ -13,6 +13,11 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Ritik Mohapatra Portfolio',
   description: 'Ritik Mohapatra Porfolio',
+  icons: {
+    icon: '/me.ico',
+    apple: '/me.ico',
+    shortcut: '/me.ico'
+  },
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
