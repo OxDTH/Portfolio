@@ -4,10 +4,13 @@ import TogglePortfolio from '@/components/TogglePortfolio';
 import { loadApps, loadLeetcode } from '@/lib/mdx';
 import { Providers } from '@/lib/providers';
 import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import glob from 'fast-glob';
 import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
+
 
 export const metadata: Metadata = {
   title: 'Ritik Mohapatra Portfolio',
@@ -49,6 +52,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <BottomBar />
           <TogglePortfolio />
           <NavigationChange allPaths={[...allApps, ...allLeetcode]} />
+          <Analytics />
+          <SpeedInsights />
         </body>
       </html>
     </Providers>
