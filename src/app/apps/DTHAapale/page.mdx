@@ -11,16 +11,16 @@ import Image from "next/image";
 import { DTHAapale } from "../../../../public/projects";
 
 export const appData = {
-  industry: "Art & Painting",
+  industry: "Electronics",
   title: "DTH Aapale",
   description:
-    "DTH Aapale is a popular paint artist in Mexico, based in Monterrey, NL. she sells her courses online.",
+    "A premium showcase website for Airpods Max headphones featuring a sleek, interactive design with additional audio products and mobile accessories.",
   image: DTHAapale,
-  date: "2022-08",
-  service: "E-commerce",
+  date: "2024-05",
+  service: "Product Showcase",
   url: "https://dthaaple.netlify.app/",
   pathname: "/apps/DTHAapale",
-  framework: "react",
+  framework: "html",
 };
 
 export const sections = [
@@ -37,10 +37,6 @@ export const metadata = {
 
 export const technologies = [
   {
-    name: "JavaScript",
-    image: "/logos/js-logo.png",
-  },
-  {
     name: "HTML5",
     image: "/logos/html5-logo.png",
   },
@@ -49,36 +45,20 @@ export const technologies = [
     image: "/logos/css-logo.png",
   },
   {
-    name: "ReactJS",
-    image: "/logos/react-logo.png",
-  },
-  {
-    name: "Sass",
-    image: "/logos/sass-logo.png",
-  },
-  {
-    name: "Bootstrap",
-    image: "/logos/bootstrap-logo.svg",
-  },
-  {
-    name: "Firebase",
-    image: "/logos/firebase-logo.jpg",
-  },
-  {
-    name: "Figma",
-    image: "/logos/figma-logo.webp",
-  },
-  {
-    name: "Mailchimp",
-    image: "/logos/mailchimp-logo.webp",
+    name: "JavaScript",
+    image: "/logos/js-logo.png",
   },
   {
     name: "Git",
     image: "/logos/git-logo.png",
   },
   {
-    name: "Github",
+    name: "GitHub",
     image: "/logos/github-logo.webp",
+  },
+  {
+    name: "Netlify",
+    image: "/logos/netlify.png",
   },
 ];
 
@@ -86,21 +66,33 @@ export const technologies = [
 
 <Border className="my-8" />
 
+  <Section id="about">
+    ## About
+
+    DTH Aapale is a visually stunning product showcase website primarily featuring Apple's Airpods Max headphones. The site presents premium audio products with interactive animations, detailed specifications, and immersive user experiences. The sleek, minimalist design emphasizes the product's premium nature while allowing users to explore different color options, view compatible accessories, and discover related products including mobile phones and compact music players.
+
+  </Section>
+
+<Border className="my-8" />
+
   <Section id="challenge">
     ## Challenge
 
-    Replace and existing website by translating a Figma design to a web application using ReactJS, Bootstrap and Sass for the Front-End, Firebase for the Back-End,
-    Mailchimp to send emails to users, and Hotmart as the payment processing system.
+    Create a high-end product showcase website with the following requirements:
 
-    - Master Admin should be able to create new courses for users.
+    - Build an interactive product viewer for the Airpods Max that allows users to view the product different according to their screen ratio
 
-    - Master Admin should be able to see sell orders in the dashboard.
+    - Implement smooth animations and transitions that highlight product features in an engaging way
 
-    - Master Admin should be able to add/delete courses from any user.
+    - Design a responsive layout that works flawlessly across desktop, tablet, and mobile devices
 
-    - Users should be able to authenticate themselves.
+    - Create a product comparison section to showcase different models and color options
 
-    - Send Emails on signup, on new course releases, and whenever a user buys a course.
+    - Develop a related products section featuring complementary items like mobile phones and music players
+
+    - Optimize the site for performance to ensure fast loading times despite the rich visual content
+
+    - Deploy the site on Netlify with a custom domain and proper SEO optimization
 
   </Section>
 
@@ -110,14 +102,38 @@ export const technologies = [
 
 ## Solution
 
-<AppSolution image='leenith-borges.png' href={appData.url}>
+<AppSolution image='DTH-Aapale.png' href={appData.url}>
 
-DTH Aapale's website is mainly powered by Firebase. The website is hosted on Firebase Hosting, the database is on Firestore, and the authentication
-system is on Firebase Auth.
+DTH Aapale was developed using a clean, modern approach focusing on core web technologies to create a high-performing, visually impressive showcase site.
 
-The system's logic such as creating new courses, deleting courses, and seeing sell orders is handled by Firebase Cloud Functions.
+### Key Features
 
-All of the mailing is handled by Mailchimp, which is integrated inside Firebase Cloud Functions.
+**Interactive Product Viewer**
+
+- Created smooth animations for product feature highlights using GSAP animation library
+- Added subtle parallax effects to create depth and visual interest
+
+**Cross-Device Experience**
+
+- Built with a mobile-first approach using responsive design principles
+- Optimized touch interactions for mobile users
+- Implemented progressive loading techniques to ensure fast performance on all devices
+- Product Showcase according to different screen sizes
+
+**Related Products Showcase**
+
+- Created a horizontally scrollable carousel featuring complementary products
+- Implemented a filtering system to view products by category (headphones, mobile phones, music players)
+- Added subtle hover effects and animations to enhance user engagement
+
+**Technical Implementation**
+
+- Built using semantic HTML5 for better accessibility and SEO
+- Used CSS3 with custom properties for consistent styling and easy theme adjustments
+- Implemented vanilla JavaScript with modular organization to keep code maintainable
+- Deployed on Netlify with continuous integration from GitHub
+
+The final result is a visually impressive, highly performant showcase site that effectively highlights the premium nature of the Airpods Max while providing an engaging user experience.
 
 </AppSolution>
 
@@ -128,6 +144,11 @@ All of the mailing is handled by Mailchimp, which is integrated inside Firebase 
 <Section id="technologies">
 
 ## Technologies
+
+<p className="mb-6">
+  DTH Aapale was built using core web technologies with a focus on performance
+  and visual appeal, keeping the codebase lightweight yet powerful.
+</p>
 
 <FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
   {technologies.map((tech) => (
@@ -151,6 +172,39 @@ All of the mailing is handled by Mailchimp, which is integrated inside Firebase 
     </FadeIn>
   ))}
 </FadeInStagger>
+
+<div className="mt-8 space-y-4">
+  <div>
+    <h3 className="font-semibold">Core Development</h3>
+    <p className="mt-1">
+      The site was built using semantic HTML5 for structure, modern CSS3 for
+      styling with animations and transitions, and vanilla JavaScript for
+      interactivity. This approach ensures fast load times and excellent
+      performance across all devices while maintaining visual richness.
+    </p>
+  </div>
+
+{" "}
+
+<div>
+  <h3 className="font-semibold">Animation & Interactivity</h3>
+  <p className="mt-1">
+    Create smooth high-performance animations for product showcases, transitions
+    between sections, and interactive elements. This helped achieve a premium
+    feel that matches the high-end products being displayed.
+  </p>
+</div>
+
+{" "}
+
+  <div>
+    <h3 className="font-semibold">Deployment & Workflow</h3>
+    <p className="mt-1">
+      The website is hosted on Netlify, providing reliable, fast content
+      delivery with automatic HTTPS.
+    </p>
+  </div>
+</div>
 
 </Section>
 

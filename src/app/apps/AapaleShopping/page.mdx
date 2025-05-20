@@ -11,16 +11,16 @@ import { AapaleShopping } from "../../../../public/projects";
 import Image from "next/image";
 
 export const appData = {
-  industry: "Entertainment",
+  industry: "E-Commerce",
   title: "Aapale Shopping",
   description:
-    'Online platform to play the traditional Mexican game "Loteria Tradicional" & "Loteria de Pocitos" with friends and family.',
+    "A basic e-commerce platform with product browsing, cart functionality, and simulated checkout flow, later migrated to Aapale India for enhanced features.",
   image: AapaleShopping,
-  date: "2020-02",
+  date: "2022-02",
   service: "Web Application",
   url: "https://aapale-shopping.netlify.app/",
   pathname: "/apps/AapaleShopping",
-  framework: "svelte",
+  framework: "html",
 };
 
 export const sections = [
@@ -37,10 +37,6 @@ export const metadata = {
 
 export const technologies = [
   {
-    name: "JavaScript",
-    image: "/logos/js-logo.png",
-  },
-  {
     name: "HTML5",
     image: "/logos/html5-logo.png",
   },
@@ -49,48 +45,24 @@ export const technologies = [
     image: "/logos/css-logo.png",
   },
   {
-    name: "TailwindCSS",
-    image: "/logos/tailwindcss-logo.jpg",
-  },
-  {
-    name: "JQuery",
-    image: "/logos/jquery-logo.webp",
-  },
-  {
-    name: "Svelte",
-    image: "/logos/svelte-logo.png",
-  },
-  {
-    name: "NodeJS",
-    image: "/logos/nodejs-logo.png",
-  },
-  {
-    name: "ExpressJS",
-    image: "/logos/express-logo.png",
-  },
-  {
-    name: "MongoDB",
-    image: "/logos/mongodb-logo.webp",
+    name: "JavaScript",
+    image: "/logos/js-logo.png",
   },
   {
     name: "Git",
     image: "/logos/git-logo.png",
   },
   {
-    name: "Github",
+    name: "GitHub",
     image: "/logos/github-logo.webp",
   },
   {
-    name: "Heroku",
-    image: "/logos/heroku-logo.webp",
+    name: "Netlify",
+    image: "/logos/netlify.png",
   },
   {
-    name: "Paypal",
-    image: "/logos/paypal-logo.png",
-  },
-  {
-    name: "MercadoPago",
-    image: "/logos/mercadopago-logo.webp",
+    name: "LocalStorage",
+    image: "/logos/js-logo.png",
   },
 ];
 
@@ -98,23 +70,41 @@ export const technologies = [
 
 <Border className="my-8" />
 
+  <Section id="about">
+    ## About
+
+    Aapale Shopping is a basic e-commerce platform built with core web technologies. It allows users to browse products, add items to their cart, and go through a simulated checkout process. The platform was designed as an initial foray into e-commerce development but was later superseded by the more robust Aapale India platform due to limitations in user authentication and backend services.
+
+  </Section>
+
+<Border className="my-8" />
+
   <Section id="challenge">
     ## Challenge
 
-    Design and develop an online platform that enables users to play "Loteria Tradicional" & "Loteria de Pocitos". Allow players to create their Loteria 'Tables' and
-    use them on their games.
+    Create a functional e-commerce platform with limited resources that could:
 
-    - Master Admin should be able to create and modify 'Events'.
+    - Display products in an organized catalog with categories and search functionality
 
-    - Master Admin should be able to start and end 'Events'.
+    - Allow users to add items to a shopping cart and adjust quantities
 
-    - Allow users to buy credits through paypal and mercadopago.
+    - Implement a simple checkout process with multiple payment method options
 
-    - Authenticate users through email and password, google, and facebook.
+    - Generate order confirmations with billing summaries and downloadable invoices
 
-    - Account verification through phone sms.
+    - Display product details, images, pricing, and availability
 
-    - Allow users to enter an 'Event' with their credits.
+    - Create a responsive design that works across desktop and mobile devices
+
+    - Implement a simulated payment processing system that accepts any payment method
+
+    **Key Limitations to Overcome:**
+
+    - Lack of robust user authentication (later addressed in Aapale India)
+
+    - Limited backend services for inventory management
+
+    - Need for order tracking without a proper database system
 
   </Section>
 
@@ -126,18 +116,54 @@ export const technologies = [
 
 <AppSolution image='AapaleShopping.png' href={appData.url}>
 
-Aapale Shopping's application is made up of 2 different express servers. Each of this servers is hosted on their own Heroku dyno.
+Aapale Shopping was built as a client-side e-commerce platform using HTML, CSS, and JavaScript. The solution focused on creating a functional shopping experience while working within the constraints of limited backend capabilities.
 
-Aapale Shopping's 'App' is the user facing interface. This is where users are able to do all of the actions that are available to them.
+### Key Features
 
-Aapale Shopping's 'Dashboard' is the admin's interface. Here the admin is able to create and modify 'Events', start and end 'Events', and view the 'Events' results.
+**Product Catalog & Browsing**
 
-After 2/3 months of success and after reaching 15k unique users, 100s of concurrent users on game night, and 12k USD NRR, I made the decision to transition
-the front end app over to SvelteJs and TailwindCSS for a better user experience and speed, and implemented Stripe and Paypal payment processing.
+- Responsive product grid with filtering by category
+- Product detail pages with image galleries, specifications, and related items
+- Search functionality with real-time filtering of results
+
+**Shopping Cart System**
+
+- Client-side cart management using LocalStorage
+- Real-time cart updates when adding/removing items or changing quantities
+- Persistent cart that remains available across browser sessions
+
+**Checkout Process**
+
+- Multi-step checkout flow with address entry and order review
+- Multiple payment method options (credit card, Debit card, Netbanking, UPI)
+- Simulated payment processing that automatically "accepts" any payment attempt
+- Order confirmation page with complete billing summary
+
+**Order Management**
+
+- Automatic generation of order IDs for tracking
+- Downloadable PDF invoice with billing information and purchased items
+- Order confirmation emails (simulated through browser display)
+- Order history stored in LocalStorage
+
+**Technical Implementation**
+
+- Built with vanilla HTML5, CSS3, and JavaScript for maximum compatibility
+- Implemented client-side form validation for address and payment information
+- Used Git for version control and GitHub for code management
+
+### Evolution to Aapale India
+
+While Aapale Shopping successfully demonstrated core e-commerce functionality, it had several limitations:
+
+- User authentication was limited to client-side storage without proper security
+- Order data wasn't persistently stored in a database
+- Inventory management was challenging without a proper backend
+- Payment processing was simulated rather than integrated with real providers
+
+These challenges led to the development of Aapale India, a more robust solution built with React and Node.js that addressed these limitations while maintaining and expanding the core shopping experience.
 
 </AppSolution>
-
-\*_Initial load is around ~2 minutes due to free hosting._
 
 </Section>
 

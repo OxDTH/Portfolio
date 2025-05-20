@@ -9,16 +9,16 @@ import {
 import Image from "next/image";
 import { DTHTunes } from "../../../../public/projects";
 export const appData = {
-  industry: "Real Estate",
+  industry: "Music",
   title: "DTH Tunes",
   description:
-    "Template available for deployment at the realtor simplified platform.",
+    "A modern music streaming platform with personalized recommendations, playlists, social sharing features, and real-time friend activity tracking.",
   image: DTHTunes,
-  date: "2022-10",
-  service: "Web application",
+  date: "2024-12",
+  service: "Entertainment",
   url: "https://dth-tunes.onrender.com/",
   pathname: "/apps/DTHTunes",
-  framework: "next",
+  framework: "vite",
 };
 
 export const sections = [
@@ -35,61 +35,48 @@ export const metadata = {
 
 export const technologies = [
   {
-    name: "HTML5",
-    image: "/logos/html5-logo.png",
-  },
-  {
-    name: "CSS3",
-    image: "/logos/css-logo.png",
-  },
-  {
-    name: "JavaScript",
-    image: "/logos/js-logo.png",
-  },
-  {
-    name: "ReactJS",
+    name: "React",
     image: "/logos/react-logo.png",
   },
   {
-    name: "NextJS",
-    image: "/logos/nextjs-logo.png",
+    name: "TypeScript",
+    image: "/logos/ts-logo.png",
   },
   {
     name: "TailwindCSS",
     image: "/logos/tailwindcss-logo.jpg",
   },
   {
-    name: "NodeJS",
-    image: "/logos/nodejs-logo.png",
+    name: "Clerk",
+    image: "/logos/stripe-logo.png", // Using as placeholder for Clerk
   },
   {
-    name: "ExpressJS",
-    image: "/logos/express-logo.png",
+    name: "ESLint",
+    image: "/logos/eslint-logo.png",
+  },
+  {
+    name: "NodeJS",
+    image: "/logos/nodejs-logo.png",
   },
   {
     name: "MongoDB",
     image: "/logos/mongodb-logo.webp",
   },
   {
-    name: "DigitalOcean",
-    image: "/logos/digital-ocean-logo.svg",
+    name: "Render",
+    image: "/logos/heroku-logo.webp", // Using as placeholder for Render
   },
   {
     name: "Git",
     image: "/logos/git-logo.png",
   },
   {
-    name: "Github",
+    name: "GitHub",
     image: "/logos/github-logo.webp",
   },
-  { name: "Docker", image: "/logos/docker-logo.png" },
   {
-    name: "Postmark",
-    image: "/logos/postmark-logo.png",
-  },
-  {
-    name: "LeafletJS",
-    image: "/logos/leaflet-logo.jpg",
+    name: "Socket.io",
+    image: "/logos/socketio-logo.webp",
   },
 ];
 
@@ -97,22 +84,39 @@ export const technologies = [
 
 <Border className="my-8" />
 
+  <Section id="about">
+    ## About
+
+    DTH Tunes is a modern music streaming platform that offers a seamless listening experience similar to Spotify. What sets DTH Tunes apart is its enhanced social features, including the ability to see what your friends are currently listening to in real-time, creating a more connected music experience. With a sleek interface and powerful features, DTH Tunes aims to provide music lovers with an immersive and social audio experience across all devices, hosted on Render.com with secure authentication powered by Clerk.
+
+  </Section>
+
+<Border className="my-8" />
+
   <Section id="challenge">
     ## Challenge
 
-    Design & Develop a template that can be deployed by a user in the realtor simplified platform. This template should be a reusable skeleton that can be
-    re-skinned with different colors and images.
+    Create a robust music streaming platform that can handle millions of tracks and users while maintaining high performance and excellent user experience. The key challenges included:
 
-    The template should display a list of properties, a list of realtors, and a contact form. It also needs to display a map with the location of the properties,
-    and have a dashboard where admin users can manage the content of the website.
+    - Building a responsive and intuitive user interface that works across all device sizes
 
-    - Dashboard should only be accessible to admin users.
+    - Implementing a secure authentication system using Clerk with social logins and role-based permissions
 
-    - Add/Modify/Delete property listings.
+    - Developing a sophisticated recommendation engine based on user listening habits
 
-    - Add/Modify/Delete realtors.
+    - Creating an efficient audio streaming infrastructure to minimize buffering
 
-    - Change static content of the website.
+    - Designing a system for managing artist profiles, albums, and tracks
+
+    - Implementing real-time social features to display what friends are currently playing
+
+    - Creating a reliable WebSocket infrastructure for live updates without affecting performance
+
+    - Deploying and scaling the application effectively on Render.com while maintaining cost efficiency
+
+    - Ensuring compliance with music licensing and copyright regulations
+
+    - An Admin Dashboard to manage playlists, albums, tracks
 
   </Section>
 
@@ -124,13 +128,43 @@ export const technologies = [
 
 <AppSolution image='DTHTunes.png' href={appData.url}>
   
-Template built to be deployed in the realtor simplified platform. Something that was taken into considaration was that the site had to be easy to use and maintain.
+DTH Tunes was built as a modern single-page application using React with TypeScript and Vite for blazing fast development and production builds. The application architecture follows a modular approach with reusable components and custom hooks for state management, all deployed on Render.com for reliable cloud hosting.
 
-This initial template is geared towards small real estate companies or agents that want to have a web presence.
+### Key Features
 
-The Front-End is built with ReactJS and NextJS, the database used is MongoDB, for the static images a Digital OCean Spaces is used, and for the map a Mapbox API and Leaflet is used.
+**Authentication & Authorization**
 
-The most importat components in this template are the Map, since it can be used in pretty much any other template, and the Dashboard, since it allows the user to manage the content of the website.
+- Implemented using Clerk for secure, hassle-free user authentication
+- Social login option like GoogleOAuth
+- Secure session management and token-based API access
+
+**Music Discovery & Playback**
+
+- Continuous playback across page navigation using a custom audio player
+- Real-time waveform visualization for tracks
+- Smart caching system to reduce bandwidth usage and improve startup times
+- Advanced search with filters for artists, albums, genres, and moods
+
+**Social Features & Friend Activity**
+
+- Real-time display of what friends are currently listening to
+- Music taste compatibility score between users
+
+**User Experience**
+
+- Responsive design using TailwindCSS for seamless experience across all devices
+- Keyboard shortcuts for power users
+- Accessibility features ensuring the platform is usable by everyone
+
+**Backend Infrastructure**
+
+- RESTful API built with Node.js hosted on Render.com
+- MongoDB database for user data, playlists, and metadata
+- Socket.io for real-time features like friend activity
+- Efficient CDN integration for audio files and images
+- Scalable architecture to handle traffic spikes during peak listening hours
+
+The application focuses on performance optimization, implementing lazy loading, code splitting, and efficient state management to ensure smooth user experience even on lower-end devices while maintaining real-time social features.
 
 </AppSolution>
 
@@ -141,6 +175,12 @@ The most importat components in this template are the Map, since it can be used 
 <Section id="technologies">
 
 ## Technologies
+
+<p className="mb-6">
+  DTH Tunes leverages modern web technologies to deliver a seamless music
+  streaming experience. Our tech stack was carefully selected to ensure
+  performance, scalability, and developer productivity.
+</p>
 
 <FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
   {technologies.map((tech) => (
@@ -164,6 +204,76 @@ The most importat components in this template are the Map, since it can be used 
     </FadeIn>
   ))}
 </FadeInStagger>
+
+<div className="mt-8 space-y-4">
+  <div>
+    <h3 className="font-semibold">Frontend Development</h3>
+    <p className="mt-1">
+      We used React with TypeScript for type-safe code and improved developer
+      experience. Vite provides lightning-fast builds and hot module
+      replacement. TailwindCSS allows for rapid UI development with a
+      utility-first approach, ensuring consistent design across the application.
+      ESLint maintains code quality standards throughout development.
+    </p>
+  </div>
+
+{" "}
+
+<div>
+  <h3 className="font-semibold">Authentication & Security</h3>
+  <p className="mt-1">
+    Clerk provides a complete authentication and user management solution,
+    handling user sign-up, login, and account management with enterprise-grade
+    security. This integration allows for seamless social logins and friend
+    connections while maintaining strict privacy controls for user data.
+  </p>
+</div>
+
+{" "}
+
+<div>
+  <h3 className="font-semibold">Real-time Social Features</h3>
+  <p className="mt-1">
+    Socket.io enables the real-time friend activity feed that shows what your
+    connections are currently playing. This technology allows for instant
+    updates without requiring page refreshes, creating a dynamic and engaging
+    social music experience that strengthens user engagement.
+  </p>
+</div>
+
+{" "}
+
+<div>
+  <h3 className="font-semibold">Code Quality & Collaboration</h3>
+  <p className="mt-1">
+    Git and GitHub power our version control workflow, with automated CI/CD
+    pipelines for testing and deployment. This approach ensures that code is
+    thoroughly reviewed and tested before being deployed to production,
+    maintaining high quality standards.
+  </p>
+</div>
+
+{" "}
+
+<div>
+  <h3 className="font-semibold">Hosting & Infrastructure</h3>
+  <p className="mt-1">
+    The entire application is deployed on Render.com, providing reliable cloud
+    hosting with automatic scaling capabilities. This platform allows us to
+    focus on development while ensuring high availability and performance, with
+    built-in CDN support for media assets and global distribution.
+  </p>
+</div>
+
+  <div>
+    <h3 className="font-semibold">Backend & Data</h3>
+    <p className="mt-1">
+      Node.js powers our backend API services, with MongoDB providing a flexible
+      document-based database for storing user data, playlists, and music
+      metadata.
+    </p>
+  </div>
+</div>
 
 </Section>
 

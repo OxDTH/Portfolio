@@ -11,16 +11,16 @@ import Image from "next/image";
 import { DTHInstagram } from "../../../../public/projects";
 
 export const appData = {
-  industry: "Wood Supplier",
+  industry: "Social Media",
   title: "DTH Instagram",
   description:
-    "Static website for a wood provider, located in Mexico. Mainly used to display the products and services offered by the company.",
+    "A modern Instagram-like social media platform currently in development, designed for sharing photos and videos, with real-time updates, direct messaging, and personalized content discovery.",
   image: DTHInstagram,
-  date: "2021-10",
-  service: "Static Website",
-  url: "https://www.instagram.com/",
+  date: "2025-10", // Future date for expected completion
+  service: "Social Networking",
+  url: "",
   pathname: "/apps/DTHInstagram",
-  framework: "next",
+  framework: "react",
 };
 
 export const sections = [
@@ -37,40 +37,40 @@ export const metadata = {
 
 export const technologies = [
   {
-    name: "HTML5",
-    image: "/logos/html5-logo.png",
-  },
-  {
-    name: "CSS3",
-    image: "/logos/css-logo.png",
-  },
-  {
-    name: "JavaScript",
-    image: "/logos/js-logo.png",
-  },
-  {
-    name: "ReactJS",
+    name: "React",
     image: "/logos/react-logo.png",
   },
   {
-    name: "NextJS",
-    image: "/logos/nextjs-logo.png",
+    name: "TypeScript",
+    image: "/logos/ts-logo.png",
   },
   {
     name: "TailwindCSS",
     image: "/logos/tailwindcss-logo.jpg",
   },
   {
+    name: "Firebase",
+    image: "/logos/firebase-logo.jpg",
+  },
+  {
+    name: "Chakra UI",
+    image: "/logos/materialui-logo.png", // Using Material UI logo as placeholder for Chakra UI
+  },
+  {
+    name: "Zustand",
+    image: "/logos/redux-logo.png", // Using Redux logo as placeholder for Zustand
+  },
+  {
+    name: "ESLint",
+    image: "/logos/eslint-logo.png",
+  },
+  {
     name: "Git",
     image: "/logos/git-logo.png",
   },
   {
-    name: "Github",
+    name: "GitHub",
     image: "/logos/github-logo.webp",
-  },
-  {
-    name: "Postmark",
-    image: "/logos/postmark-logo.png",
   },
 ];
 
@@ -78,14 +78,52 @@ export const technologies = [
 
 <Border className="my-8" />
 
+  <Section id="about">
+    ## About
+
+    DTH Instagram is a feature-rich social media platform currently in active development that emulates and enhances the familiar Instagram experience. The application allows users to share photos and videos, create stories, follow friends, discover trending content, and engage through likes, comments, and direct messages.
+
+    Built with modern web technologies including React, TypeScript, and Firebase, the platform provides a responsive, intuitive interface with real-time updates and personalized content recommendations, all while maintaining high performance even when handling media-rich content.
+
+    <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+    <p className="text-red-500 font-medium">Development Status:</p>
+    <p className="mt-2">
+    This project is currently in development with core features being implemented iteratively. The platform is expected to launch a beta version in late 2026, with new features being added regularly based on user feedback and testing.
+    </p>
+    </div>
+
+  </Section>
+
+<Border className="my-8" />
+
   <Section id="challenge">
     ## Challenge
 
-    Design & Develop a static website for a wood supplier company.
+    Create a comprehensive social media platform that is currently being developed with the following focus areas:
 
-    - Display the products and services offered by the company.
+    - Develop a responsive, Instagram-like user interface that works seamlessly across all devices using React, TypeScript, and Chakra UI
 
-    - Allow the user to contact the company.
+    - Implement secure user authentication and profile management with Firebase Authentication
+
+    - Build a real-time feed with infinite scrolling and content loading optimization
+
+    - Create a robust media upload system supporting photos and videos with filters and editing tools
+
+    - Implement direct messaging functionality with real-time updates using Firebase Realtime Database
+
+    - Develop a stories feature with auto-expiring content
+
+    - Build a content discovery system with personalized recommendations
+
+    - Ensure optimal performance despite handling large media files and real-time updates
+
+    - Create a scalable architecture that can grow as user numbers increase
+
+    - Implement proper code quality standards using ESLint and TypeScript
+
+    - Set up an efficient development workflow with Git and GitHub
+
+    The development process is iterative, with new features being added as earlier ones are completed and tested.
 
   </Section>
 
@@ -95,7 +133,62 @@ export const technologies = [
 
 ## Solution
 
-<AppSolution href={appData.url}></AppSolution>
+<AppSolution image='DTH-Instagram.png' href={appData.url}>
+
+DTH Instagram is being built as a modern application using React with TypeScript for type safety and improved developer experience. The application leverages a suite of contemporary technologies to deliver a seamless, feature-rich social media experience. Below is an overview of the current implementation and planned features.
+
+### Current Development Progress
+
+**User Experience & Interface** ✅
+
+- Developing with React for a responsive, dynamic user interface
+- Using Chakra UI for accessible, customizable components with consistent design language
+- Implementing TailwindCSS for rapid styling and responsive design
+- Creating custom animations for likes, comments, and story transitions
+- Currently fine-tuning dark mode and accessibility features
+
+**Authentication & Security** ✅
+
+- Integrated Firebase Authentication for secure user management
+- Implemented email/password, Google, and Facebook authentication options
+- Adding role-based access control for regular users and content moderators
+- Building comprehensive privacy settings for user content and profile information
+
+**Content Management** 🔄
+
+- Creating a robust image and video upload system with Firebase Storage
+- Building custom filters and basic editing tools for photos
+- Implementing content compression to optimize loading times
+- Developing a caching strategy to reduce bandwidth usage and improve startup times
+- Still working on advanced image editing features and AR filters
+
+**Real-time Features** 🔄
+
+- Using Firebase Realtime Database for instant notifications and updates
+- Implementing real-time direct messaging (currently in testing)
+- Creating live comment and like updates
+- Developing ephemeral stories feature with 24-hour expiration (in progress)
+
+**State Management** ✅
+
+- Utilizing Zustand for lightweight, efficient state management
+- Implementing optimistic UI updates for instant feedback
+- Creating a normalized store architecture for efficient data retrieval
+- Building persistent state for offline capabilities
+
+**Performance Optimization** 🚧
+
+- Implementing code-splitting and lazy loading for faster initial load times
+- Using virtualized lists for efficient rendering of large content feeds
+- Optimizing image and video delivery with progressive loading
+- Planning to build a service worker for improved offline experience
+
+**Development Timeline:**
+
+- Q3 2026: Testing
+- Q1 2027: Release
+
+</AppSolution>
 
 </Section>
 

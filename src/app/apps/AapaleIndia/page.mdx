@@ -11,13 +11,13 @@ import Image from "next/image";
 import { AapaleIndia } from "../../../../public/projects";
 
 export const appData = {
-  industry: "Real Estate",
+  industry: "E Commerce",
   title: "Aapale India",
   description:
-    "Aapale India is a saas platform that allows you to deploy a real estate website from a selection of templates within minutes.",
+    "Aapale India is a modern e-commerce platform under development that will offer a seamless shopping experience with a wide range of products, personalized recommendations, and secure payment processing.",
   image: AapaleIndia,
-  date: "2023-01",
-  service: "Saas application",
+  date: "2025-04",
+  service: "Web Application",
   url: "",
   pathname: "/apps/AapaleIndia",
   framework: "next",
@@ -37,24 +37,16 @@ export const metadata = {
 
 export const technologies = [
   {
-    name: "HTML5",
-    image: "/logos/html5-logo.png",
-  },
-  {
-    name: "CSS3",
-    image: "/logos/css-logo.png",
-  },
-  {
-    name: "JavaScript",
-    image: "/logos/js-logo.png",
+    name: "NextJS",
+    image: "/logos/nextjs-logo.png",
   },
   {
     name: "ReactJS",
     image: "/logos/react-logo.png",
   },
   {
-    name: "NextJS",
-    image: "/logos/nextjs-logo.png",
+    name: "TypeScript",
+    image: "/logos/ts-logo.png",
   },
   {
     name: "TailwindCSS",
@@ -65,20 +57,12 @@ export const technologies = [
     image: "/logos/nodejs-logo.png",
   },
   {
-    name: "ExpressJS",
-    image: "/logos/express-logo.png",
-  },
-  {
     name: "MongoDB",
     image: "/logos/mongodb-logo.webp",
   },
   {
-    name: "Stripe",
-    image: "/logos/stripe-logo.png",
-  },
-  {
-    name: "DigitalOcean",
-    image: "/logos/digital-ocean-logo.svg",
+    name: "Redux",
+    image: "/logos/redux-logo.png",
   },
   {
     name: "Git",
@@ -88,34 +72,49 @@ export const technologies = [
     name: "Github",
     image: "/logos/github-logo.webp",
   },
-  { name: "Docker", image: "/logos/docker-logo.png" },
-  {
-    name: "Postmark",
-    image: "/logos/postmark-logo.png",
-  },
 ];
 
 <Container>
 
 <Border className="my-8" />
 
+  <Section id="about">
+    ## About
+
+    Aapale India is a comprehensive e-commerce platform currently under development that aims to revolutionize the online shopping experience. The platform will offer a wide range of products across various categories including electronics, fashion, home goods, and more. With a user-friendly interface and powerful backend, Aapale India is designed to provide both customers and merchants with a seamless, efficient, and enjoyable e-commerce experience.
+
+    <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+      <p className="text-red-500 font-medium">Development Status:</p>
+    <p className="mt-2">
+      This project is currently in active development. The core architecture and
+      main features are being implemented, with an expected beta release in late
+      2025. The technology stack may evolve as development progresses to
+      incorporate the latest best practices and tools.
+    </p>
+
+</div>
+  </Section>
+
+<Border className="my-8" />
+
   <Section id="challenge">
     ## Challenge
 
-    Design & Develop a platform that desploys a premade template within minutes. This application needs to have multiple services coupled together:
+    The main challenges in building Aapale India include:
 
-    1. Dedicated static image hosting service, Digital Ocean Spaces (S3 wrapper).
-    2. Dedicated mongodb database from Digital Ocean.
-    3. Mapbox api key for their tiles service.
-    4. Dedicated application hosting for a NextJS app in Digital Ocean's App Platform.
+    1. Creating a scalable e-commerce platform that can handle thousands of products, users, and transactions simultaneously.
 
-    - All of this resources need to be provisioned automatically, and coupled together without any human interaction.
+    2. Implementing robust search and filtering capabilities to help users easily find products they're looking for.
 
-    - User should be able to manage Admin users and access to the app's dashboard.
+    3. Developing a secure and seamless payment processing system supporting multiple payment methods.
 
-    - User should be able to assign a custom domain for the application.
+    4. Building a responsive design that works across all devices and screen sizes.
 
-    - Admin users, should be able to modify the static content of the website as well as dynamic content, such as property listings, realtors, images, etc.
+    5. Implementing inventory management to accurately track product availability across the platform.
+
+    6. Creating an intuitive admin dashboard for merchants to manage products, orders, and customer data.
+
+    7. Optimizing for performance and SEO to ensure high visibility and fast page loads.
 
   </Section>
 
@@ -126,29 +125,45 @@ export const technologies = [
 ## Solution
 
 <AppSolution image='AapaleIndia.png' href={appData.url}>
-  
-Aapale India Saas is split in 3 different systems. Each of this systems is hosted in their own server and they communicate through apis.
 
-The first system 'Shop' is a NextJs application that faces the user. It is where a user can register, manage their subscription, and choose which template to deploy.
-Once a template is deployed this is also where that user is able to change the template, add admin users that can access the application dasboard's and where they can add
-a custom domain for the application.
+Aapale India is being built using a modern tech stack with a focus on performance, scalability, and user experience. The application architecture consists of three main components:
 
-The second system 'Server' is a small express server that serves as a connection between the 'Shop' and the 'Worker' system. It's job is to recieve orders from the 'Shop'
-and initialize any of the 3 job sequences available:
+### Customer-Facing Frontend
 
-### Job Sequences
+The frontend is built with Next.js and React, leveraging TypeScript for type safety and better developer experience. The UI is designed using Tailwind CSS, providing a responsive and customizable interface. Key features include:
 
-**Initial Deployment (user triggered):**
-This sequence is executed when a newly subscribed user deploys an application for the first time. The necessary resources previously mentioned will be provisioned from digital ocean.
+- Product browsing with advanced filtering and search
+- User accounts and profiles
+- Wishlist functionality
+- Shopping cart with persistent storage
+- Secure checkout process
+- Order tracking and history
 
-**Redeployment (user triggered):**
-This sequence is executed when a subscribed user with an active application wants to change the selected template, or when they want to change the domain name of the application. Adding or deleting admin users can be achieved without redeploying.
+### Admin Dashboard
 
-**Delete Application (system triggered):**
-Whenever a user deletes their subscription the system will start a delete sequence that will delete all of their resources.
+A comprehensive admin dashboard allows store managers to:
 
-The last system 'Worker' is a series of redis queues that execute in sequence depending on which queue they start at. It is important to note, that job error handling and job initialization is only done
-by the 'Server' this is why the 'Worker' needs to notify the 'Server' whenever a job is finished correctly or incorrectly.
+- Manage product listings, categories, and inventory
+- Process and track orders
+- View analytics and sales reports
+- Manage customer accounts and support requests
+- Configure store settings and appearance
+
+### Backend Architecture
+
+The backend is built with Node.js and uses MongoDB for flexible data storage. The system includes:
+
+- RESTful API endpoints for frontend communication
+- Stripe integration for secure payment processing
+- Authentication and authorization with JWT
+- Image and asset storage system
+- Analytics and reporting services
+- Automated inventory management
+
+All components are connected through well-defined APIs, making the system modular and easy to extend as new features are required.
+
+**Current Development Status:**
+The project is in active development with core features being implemented. We are following an agile development process with regular sprints to continually add features and improvements based on testing feedback.
 
 </AppSolution>
 
@@ -159,6 +174,13 @@ by the 'Server' this is why the 'Worker' needs to notify the 'Server' whenever a
 <Section id="technologies">
 
 ## Technologies
+
+<p className="mb-6">
+  Aapale India is being developed using a modern tech stack focused on
+  performance, reliability, and developer productivity. The project is currently
+  in development, with new features being added regularly. Below are the key
+  technologies powering the platform:
+</p>
 
 <FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
   {technologies.map((tech) => (
