@@ -67,11 +67,11 @@ export default function AboutMe() {
               <GlowCard className="hover:shadow-about_me_green/90" glowClassName="from-[#6bc072] to-[#6bc072]">
                 <div className="flex flex-col gap-8 @lg:flex-row justify-between">
                   <div className="flex-none mx-auto self-center">
-                    <Image className="rounded-2xl object-fill" src="/soa.jpeg" alt="" width={144} height={144} />
+                    <Image className="rounded-2xl object-fill" src="/BITS.png" alt="" width={144} height={144} />
                   </div>
                   <div className="max-w-xl flex-auto">
-                    <h3 className="text-lg font-semibold leading-8 tracking-tight text-white">B.Tech. in Computer Science and Engineering.</h3>
-                    <p className="text-base leading-7 text-about_me_green">Institute of Technical Education & Research (SOA UNIVERSITY)</p>
+                    <h3 className="text-lg font-semibold leading-8 tracking-tight text-white">Bachelor of Science in Computer Science.</h3>
+                    <p className="text-base leading-7 text-about_me_green">Birla Institute of Technology and Science, Pilani</p>
                   </div>
                 </div>
               </GlowCard>
