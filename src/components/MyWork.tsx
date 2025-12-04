@@ -2,7 +2,7 @@
 import { ExpandArrowLink, GlowCard } from '@/components';
 import clsx from 'clsx';
 import Image, { StaticImageData } from 'next/image';
-import { impulseux, DTHAapale, leenithIos, AapaleShopping, AapaleIndia, DTHInstagram, DTHTunes  } from '../../public/projects/';
+import { DTHAapale, AapaleShopping, AapaleIndia, DTHInstagram, DTHTunes } from '../../public/projects/';
 
 interface Project {
   href: string;
@@ -17,7 +17,7 @@ interface Project {
 const projects: Project[] = [
   {
     href: '/apps/AapaleIndia',
-    name: 'Aapale India (Under Construction)',
+    name: 'Aapale India',
     full: true,
     description: ' a fully responsive eCommerce website with product listings, user login, detailed pages, checkout features etc. Built with a focus on clean UI, smooth user experience, and frontend best practices.',
     image: { src: AapaleIndia },

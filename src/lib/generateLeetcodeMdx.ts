@@ -1,5 +1,5 @@
 // @ts-check
-const { readdir, readFile, writeFile } = require('fs/promises');
+const { readdir, readFile, writeFile, access } = require('fs/promises');
 const matter = require('gray-matter');
 
 const directory = './src/app/leetcode';
@@ -46,7 +46,15 @@ async function updateFrontMatter({ folder, filepath }: { folder: string; filepat
 }
 
 async function main() {
-  // Get all folder/files crom directory
+  // Check if directory exists, if not, skip processing
+  try {
+    await access(directory);
+  } catch {
+    console.log('Leetcode directory not found, skipping MDX generation.');
+    return;
+  }
+
+  // Get all folder/files from directory
   const folderNames = (await readdir(directory)) as string[];
 
   // Get all Folders only
